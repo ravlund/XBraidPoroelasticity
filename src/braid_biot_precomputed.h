@@ -1,8 +1,6 @@
 #ifndef UG_PLUGIN_XBRAIDBIOT_BRAIDBIIOTPRECOMPUTED_H
 #define UG_PLUGIN_XBRAIDBIOT_BRAIDBIIOTPRECOMPUTED_H
 
-#include "lib_algebra/vector_interface/vec_functions.h"
-
 #include "../../Poroelasticity/src/biot_tools.h"
 
 #include "../../XBraidForUG4/src/interface/observer_xbraid.h"
