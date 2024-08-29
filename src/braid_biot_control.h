@@ -68,15 +68,11 @@ namespace ug { namespace XBraidPoroelasticity {
             return false;
         };
 
-        virtual bool step_process(SP_GridFunction u, int index, double time, double dt, int level, int interation) {
+        virtual bool step_process(SP_GridFunction u, int index, double time, double dt, int interation, int level) {
             this->step_process(u,index,time,dt);
             return false;
         };
 
-
-        bool lua_write(SP_GridFunction u, int index, double time) {
-            return step_process(u, index, time, 0);
-        }
         //--------------------------------------------------------------------------------------------------------------
     };
 }}

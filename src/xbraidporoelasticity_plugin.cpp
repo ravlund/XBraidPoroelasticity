@@ -120,7 +120,7 @@ namespace ug {
                             .add_constructor()
                             .add_method("set_problem", reinterpret_cast<void (T_BraidBiotCheck::*)(SP_Problem)>(&T_BraidBiotCheck::set_problem), "", "", "")
                             .add_method("set_napprox", &T_BraidBiotCheck::set_napprox, "", "", "")
-                            .add_method("lua_write", &T_BraidBiotCheck::lua_write, "", "", "")
+                            //.add_method("write", &T_BraidBiotCheck::lua_write, "", "", "")
                             .add_method("set_filename", &T_BraidBiotCheck::set_filename, "", "", "")
                             .set_construct_as_smart_pointer(true);
                     reg.add_class_to_group(name, "BraidBiotCheck", tag);
