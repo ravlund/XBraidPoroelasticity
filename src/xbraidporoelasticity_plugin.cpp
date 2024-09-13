@@ -78,9 +78,10 @@ namespace ug {
                             .add_method("set_c_factor", &T_BraidBiotCheckPrecomputed::set_c_factor, "", "", "")
                             .add_method("set_solution_name", &T_BraidBiotCheckPrecomputed::set_solution_name, "", "", "")
                             .add_method("set_diff_name", &T_BraidBiotCheckPrecomputed::set_diff_name, "", "", "")
-                            .add_method("lua_write", &T_BraidBiotCheckPrecomputed::lua_write, "", "", "")
+                            .add_method("step_process", &T_BraidBiotCheckPrecomputed::lua_write, "", "", "")
                             .add_method("lua_compare", &T_BraidBiotCheckPrecomputed::lua_compare, "", "", "")
                             .add_method("set_log", &T_BraidBiotCheckPrecomputed::set_log, "", "", "")
+                            .add_method("print", &T_BraidBiotCheckPrecomputed::print, "", "", "")
                             .add_method("set_vtk_write_mode", &T_BraidBiotCheckPrecomputed::set_vtk_write_mode, "", "", "")
                             .add_method("set_io_write_mode", &T_BraidBiotCheckPrecomputed::set_io_write_mode, "","", "")
                             .set_construct_as_smart_pointer(true);
@@ -120,7 +121,7 @@ namespace ug {
                             .add_constructor()
                             .add_method("set_problem", reinterpret_cast<void (T_BraidBiotCheck::*)(SP_Problem)>(&T_BraidBiotCheck::set_problem), "", "", "")
                             .add_method("set_napprox", &T_BraidBiotCheck::set_napprox, "", "", "")
-                            //.add_method("write", &T_BraidBiotCheck::lua_write, "", "", "")
+                            .add_method("step_process", &T_BraidBiotCheck::lua_write, "", "", "")
                             .add_method("set_filename", &T_BraidBiotCheck::set_filename, "", "", "")
                             .set_construct_as_smart_pointer(true);
                     reg.add_class_to_group(name, "BraidBiotCheck", tag);

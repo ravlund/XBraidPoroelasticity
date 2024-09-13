@@ -73,6 +73,19 @@ namespace ug { namespace XBraidPoroelasticity {
             return false;
         };
 
+        SP_GridFunction lua_write(SP_GridFunction u, int index, double time, double dt) {
+            m_problem->m_errData.napprox = this->napprox;
+
+            SP_GridFunction solution = m_problem->compute_solution(u, index, time);
+
+            std::stringstream ss;
+            ss << this->filename<<"_"<<index;
+            SP_PIOGridFunction pio = SP_PIOGridFunction();
+            pio->write(solution,ss.str().c_str());
+
+            return solution;
+        }
+
         //--------------------------------------------------------------------------------------------------------------
     };
 }}

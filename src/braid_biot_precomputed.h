@@ -174,8 +174,12 @@ namespace ug { namespace XBraidPoroelasticity {
             this->io_write_error = error;
         }
 
-        bool lua_write(SP_GridFunction u, int index, double time) {
+        bool lua_write(SP_GridFunction u, int index, double time, double dt) {
             return this->step_process(u, index, time,0);
+        }
+
+        bool print(std::string str,SP_GridFunction u, int index, double time) {
+            return this->step_process(u, index, time,0.0);
         }
 
         bool step_process(SP_GridFunction u, int index, double time, double dt) override {
@@ -198,7 +202,7 @@ namespace ug { namespace XBraidPoroelasticity {
                 // load gridfunction file (ref solution)
                 XBraidForUG4::PIOGridFunction <TDomain, TAlgebra> io = XBraidForUG4::PIOGridFunction<TDomain, TAlgebra>();
                 std::stringstream ss_ref;
-                ss_ref << this->base_path << "/num_ref_" << this->num_ref << "/BarryMercer2D_" << zidx;
+                ss_ref << this->base_path << "/num_ref_" << this->num_ref << "/BarryMercer_2D_NumRef"<<this->num_ref<<"_nX1_"<< zidx;
                 io.read(sol, ss_ref.str().c_str());
 
                 // substract
