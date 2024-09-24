@@ -20,11 +20,11 @@ namespace ug { namespace XBraidPoroelasticity {
 
         //--------------------------------------------------------------------------------------------------------------
 
-        typedef GridFunction<TDomain, TAlgebra> T_GridFunction;
-        typedef SmartPtr<T_GridFunction> SP_GridFunction;
+        using T_GridFunction = GridFunction<TDomain, TAlgebra> ;
+        using SP_GridFunction = SmartPtr<T_GridFunction> ;
 
-        typedef XBraidForUG4::ParallelLogger T_ParallelLogger;
-        typedef SmartPtr<T_ParallelLogger> SP_Paralog;
+        using T_ParallelLogger = XBraidForUG4::ParallelLogger ;
+        using SP_Paralog = SmartPtr<T_ParallelLogger> ;
 
         //--------------------------------------------------------------------------------------------------------------
 

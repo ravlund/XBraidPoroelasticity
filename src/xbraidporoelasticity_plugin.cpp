@@ -26,8 +26,8 @@ namespace ug {
                 string tag = GetDomainAlgebraTag<TDomain, TAlgebra>();
 
                 { // BiotBraidDisplacementNorm
-                    typedef BiotBraidDisplacementNorm<TDomain, TAlgebra> T_BiotSpatialNorm;
-                    typedef XBraidForUG4::BraidSpatialNorm<TDomain, TAlgebra> T_SpatialNorm;
+                    using T_BiotSpatialNorm = BiotBraidDisplacementNorm<TDomain, TAlgebra> ;
+                    using T_SpatialNorm = XBraidForUG4::BraidSpatialNorm<TDomain, TAlgebra> ;
 
                     string name = string("BiotBraidDisplacementNorm").append(suffix);
                     reg.add_class_<T_BiotSpatialNorm, T_SpatialNorm>(name, grp)
@@ -39,7 +39,7 @@ namespace ug {
                 }
 
                 { // BiotBraidDisplacementNorm
-                    typedef BiotErrorData<TDomain, TAlgebra> T_BiotErrorData;
+                    using T_BiotErrorData = BiotErrorData<TDomain, TAlgebra> ;
 
                     string name = string("BiotErrorData").append(suffix);
                     reg.add_class_<T_BiotErrorData>(name, grp)
@@ -51,8 +51,8 @@ namespace ug {
                 }
 
                 {// BiotBraidSpatialNorm
-                    typedef BiotBraidSpatialNorm<TDomain, TAlgebra> T_BiotSpatialNorm;
-                    typedef XBraidForUG4::BraidSpatialNorm<TDomain, TAlgebra> T_SpatialNorm;
+                    using T_BiotSpatialNorm = BiotBraidSpatialNorm<TDomain, TAlgebra> ;
+                    using T_SpatialNorm = XBraidForUG4::BraidSpatialNorm<TDomain, TAlgebra> ;
 
                     string name = string("BiotBraidSpatialNorm").append(suffix);
                     reg.add_class_<T_BiotSpatialNorm, T_SpatialNorm>(name, grp)
@@ -66,8 +66,8 @@ namespace ug {
                 }
 
                 {   //BraidBiotCheckPrecomputed
-                    typedef BraidBiotCheckPrecomputed<TDomain, TAlgebra> T_BraidBiotCheckPrecomputed;
-                    typedef XBraidForUG4::IXBraidTimeIntegratorObserver<TDomain, TAlgebra> T_IXBraidTimeIntegratorObserver;
+                    using T_BraidBiotCheckPrecomputed = BraidBiotCheckPrecomputed<TDomain, TAlgebra> ;
+                    using T_IXBraidTimeIntegratorObserver = XBraidForUG4::IXBraidTimeIntegratorObserver<TDomain, TAlgebra> ;
                     string name = string("BraidBiotCheckPrecomputed").append(suffix);
                     reg.add_class_<T_BraidBiotCheckPrecomputed, T_IXBraidTimeIntegratorObserver>(name, grp)
                             .add_constructor()
@@ -111,11 +111,11 @@ namespace ug {
 
                 // Braid Time Integrator
                 {
-                    typedef BraidBiotCheck<TDomain, TAlgebra> T_BraidBiotCheck;
-                    typedef XBraidForUG4::IXBraidTimeIntegratorObserver<TDomain, TAlgebra> T_SpatialNorm;
+                    using T_BraidBiotCheck= BraidBiotCheck<TDomain, TAlgebra> ;
+                    using T_SpatialNorm=  XBraidForUG4::IXBraidTimeIntegratorObserver<TDomain, TAlgebra> ;
 
-                    typedef Poroelasticity::BarryMercerProblem<TDomain,TAlgebra> T_Problem;
-                    typedef SmartPtr<T_Problem> SP_Problem;
+                    using T_Problem = Poroelasticity::BarryMercerProblem<TDomain,TAlgebra> ;
+                    using SP_Problem = SmartPtr<T_Problem> ;
                     string name = string("BraidBiotCheck").append(suffix);
                     reg.add_class_<T_BraidBiotCheck, T_SpatialNorm>(name, grp)
                             .add_constructor()

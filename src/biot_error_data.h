@@ -14,8 +14,8 @@ namespace ug { namespace XBraidPoroelasticity {
 
         //--------------------------------------------------------------------------------------------------------------
 
-        typedef GridFunction<TDomain, TAlgebra> T_GridFunction;
-        typedef SmartPtr<T_GridFunction> SP_GridFunction;
+        using T_GridFunction = GridFunction<TDomain, TAlgebra>;
+        using SP_GridFunction = SmartPtr<T_GridFunction> ;
 
         //--------------------------------------------------------------------------------------------------------------
 

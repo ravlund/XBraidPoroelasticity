@@ -15,19 +15,19 @@ namespace ug { namespace XBraidPoroelasticity {
      * @tparam TAlgebra
      */
     template <typename TDomain, typename TAlgebra>
-    class BraidBiotCheck : public XBraidForUG4::IXBraidTimeIntegratorObserver<TDomain, TAlgebra> {
+    class BraidBiotCheck final : public XBraidForUG4::IXBraidTimeIntegratorObserver<TDomain, TAlgebra> {
     public:
 
         //--------------------------------------------------------------------------------------------------------------
 
-        typedef GridFunction<TDomain, TAlgebra> T_GridFunction;
-        typedef SmartPtr<T_GridFunction> SP_GridFunction;
+        using T_GridFunction = GridFunction<TDomain, TAlgebra> ;
+        using SP_GridFunction = SmartPtr<T_GridFunction> ;
 
-        typedef Poroelasticity::BarryMercerProblem<TDomain, TAlgebra> T_Problem;
-        typedef SmartPtr<T_Problem> SP_Problem;
+        using T_Problem = Poroelasticity::BarryMercerProblem<TDomain, TAlgebra> ;
+        using SP_Problem = SmartPtr<T_Problem> ;
 
-        typedef XBraidForUG4::PIOGridFunction<TDomain, TAlgebra> T_PIOGridFunction;
-        typedef SmartPtr<T_PIOGridFunction> SP_PIOGridFunction;
+        using T_PIOGridFunction = XBraidForUG4::PIOGridFunction<TDomain, TAlgebra> ;
+        using SP_PIOGridFunction = SmartPtr<T_PIOGridFunction> ;
 
         //--------------------------------------------------------------------------------------------------------------
 
@@ -68,7 +68,7 @@ namespace ug { namespace XBraidPoroelasticity {
             return false;
         };
 
-        virtual bool step_process(SP_GridFunction u, int index, double time, double dt, int interation, int level) {
+        bool step_process(SP_GridFunction u, int index, double time, double dt, int interation, int level) override {
             this->step_process(u,index,time,dt);
             return false;
         };

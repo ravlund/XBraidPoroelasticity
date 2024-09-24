@@ -21,21 +21,21 @@ namespace ug { namespace XBraidPoroelasticity {
 
         //--------------------------------------------------------------------------------------------------------------
 
-        typedef GridFunction<TDomain, TAlgebra> T_GridFunction;
-        typedef SmartPtr<T_GridFunction> SP_GridFunction;
+        using T_GridFunction = GridFunction<TDomain, TAlgebra> ;
+        using SP_GridFunction = SmartPtr<T_GridFunction> ;
 
-        typedef VTKOutput<TDomain::dim> T_VTKOutput;
-        typedef SmartPtr<T_VTKOutput> SP_VTKOutput;
+        using T_VTKOutput = VTKOutput<TDomain::dim> ;
+        using SP_VTKOutput = SmartPtr<T_VTKOutput> ;
 
-        typedef XBraidForUG4::VTK_ProcessObserver<TDomain, TAlgebra> T_VTK_ProcessObserver;
-        typedef SmartPtr<T_VTK_ProcessObserver> SP_VTK_ProcessObserver;
+        using T_VTK_ProcessObserver = XBraidForUG4::VTK_ProcessObserver<TDomain, TAlgebra> ;
+        using SP_VTK_ProcessObserver = SmartPtr<T_VTK_ProcessObserver> ;
 
-        typedef XBraidForUG4::IO_ProcessObserver<TDomain, TAlgebra> T_IO_ProcessObserver;
-        typedef SmartPtr<T_IO_ProcessObserver> SP_IO_ProcessOobserver;
+        using T_IO_ProcessObserver = XBraidForUG4::IO_ProcessObserver<TDomain, TAlgebra> ;
+        using SP_IO_ProcessOobserver = SmartPtr<T_IO_ProcessObserver> ;
 
-        typedef XBraidForUG4::ParallelLogger T_ParallelLogger;
-        typedef SmartPtr<T_ParallelLogger> SP_ParallelLogger;
-        typedef std::tuple<int, int, int> T_Key;
+        using T_ParallelLogger = XBraidForUG4::ParallelLogger ;
+        using SP_ParallelLogger = SmartPtr<T_ParallelLogger> ;
+        using T_Key= std::tuple<int, int, int> ;
 
         //--------------------------------------------------------------------------------------------------------------
 
