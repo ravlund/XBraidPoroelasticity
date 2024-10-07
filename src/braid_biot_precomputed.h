@@ -61,7 +61,7 @@ namespace ug { namespace XBraidPoroelasticity {
         bool io_write_solution = false;
         bool io_write_error = false;
 
-        std::string base_path = "/storage/run/poroelasticity/analyticsolution";
+        std::string base_path = "/storage/data/poroelasticity/analyticsolution";
         std::vector<int> index_level;
         std::map<T_Key, int> map;
 
@@ -202,7 +202,11 @@ namespace ug { namespace XBraidPoroelasticity {
                 // load gridfunction file (ref solution)
                 XBraidForUG4::PIOGridFunction <TDomain, TAlgebra> io = XBraidForUG4::PIOGridFunction<TDomain, TAlgebra>();
                 std::stringstream ss_ref;
-                ss_ref << this->base_path << "/num_ref_" << this->num_ref << "/BarryMercer_2D_NumRef"<<this->num_ref<<"_nX1_"<< zidx;
+                int local_num_ref = u->grid_level().level();
+                if(local_num_ref == GridLevel::TOP) {
+                    local_num_ref = this->num_ref;
+                }
+                ss_ref << this->base_path << "/num_ref_" << local_num_ref << "/BarryMercer_2D_NumRef"<< local_num_ref<<"_nX1_"<< zidx;
                 io.read(sol, ss_ref.str().c_str());
 
                 // substract
@@ -261,7 +265,11 @@ namespace ug { namespace XBraidPoroelasticity {
                 // load gridfunction file (ref solution)
                 XBraidForUG4::PIOGridFunction <TDomain, TAlgebra> io = XBraidForUG4::PIOGridFunction<TDomain, TAlgebra>();
                 std::stringstream ss_ref;
-                ss_ref << this->base_path << "/num_ref_" << this->num_ref << "/BarryMercer2D_" << zidx;
+                int local_num_ref = u->grid_level().level();
+                if(local_num_ref == GridLevel::TOP) {
+                    local_num_ref = this->num_ref;
+                }
+                ss_ref << this->base_path << "/num_ref_" << local_num_ref << "/BarryMercer_2D_NumRef"<< local_num_ref<<"_nX1_"<< zidx;
                 std::cout << index << "\t";
                 std::cout << ss_ref.str().c_str() << std::endl;
                 io.read(sol, ss_ref.str().c_str());
