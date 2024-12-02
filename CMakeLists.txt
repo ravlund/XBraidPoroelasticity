@@ -18,6 +18,7 @@ set(SOURCES
         src/braid_biot_estimator.h
         src/braid_biot_control.h
         src/braid_biot_precomputed.h
+        src/braid_heat_check.h
         src/biot_error_data.h
         src/biot_braid_displacement_norm.h
 )

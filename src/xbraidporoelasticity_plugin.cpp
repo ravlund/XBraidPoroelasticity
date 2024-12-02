@@ -8,6 +8,7 @@
 #include "braid_biot_estimator.h"
 #include "braid_biot_precomputed.h"
 #include "biot_braid_displacement_norm.h"
+#include "braid_heat_check.h"
 
 using namespace std;
 using namespace ug::bridge;
@@ -86,6 +87,28 @@ namespace ug {
                             .add_method("set_io_write_mode", &T_BraidBiotCheckPrecomputed::set_io_write_mode, "","", "")
                             .set_construct_as_smart_pointer(true);
                     reg.add_class_to_group(name, "BraidBiotCheckPrecomputed", tag);
+                }
+
+
+                {   //BraidHeatCheck
+                    using T_BraidHeatCheck = BraidHeatCheck<TDomain, TAlgebra> ;
+                    using T_IXBraidTimeIntegratorObserver = XBraidForUG4::IXBraidTimeIntegratorObserver<TDomain, TAlgebra> ;
+                    string name = string("BraidHeatCheck").append(suffix);
+                    reg.add_class_<T_BraidHeatCheck, T_IXBraidTimeIntegratorObserver>(name, grp)
+                            .add_constructor()
+                            .add_method("set_num_ref", &T_BraidHeatCheck::set_num_ref, "", "", "")
+                            .add_method("set_max_index", &T_BraidHeatCheck::set_max_index, "", "", "")
+                            .add_method("set_c_factor", &T_BraidHeatCheck::set_c_factor, "", "", "")
+                            .add_method("set_solution_name", &T_BraidHeatCheck::set_solution_name, "", "", "")
+                            .add_method("set_diff_name", &T_BraidHeatCheck::set_diff_name, "", "", "")
+                            .add_method("step_process", &T_BraidHeatCheck::lua_write, "", "", "")
+                            .add_method("lua_compare", &T_BraidHeatCheck::lua_compare, "", "", "")
+                            .add_method("set_log", &T_BraidHeatCheck::set_log, "", "", "")
+                            .add_method("print", &T_BraidHeatCheck::print, "", "", "")
+                            .add_method("set_vtk_write_mode", &T_BraidHeatCheck::set_vtk_write_mode, "", "", "")
+                            .add_method("set_io_write_mode", &T_BraidHeatCheck::set_io_write_mode, "","", "")
+                            .set_construct_as_smart_pointer(true);
+                    reg.add_class_to_group(name, "BraidHeatCheck", tag);
                 }
             }
 

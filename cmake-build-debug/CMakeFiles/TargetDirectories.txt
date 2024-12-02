@@ -1,3 +1,0 @@
-/storage/pro/ug/plugins/XBraidPoroelasticity/cmake-build-debug/CMakeFiles/XBraidPoroelasticity.dir
-/storage/pro/ug/plugins/XBraidPoroelasticity/cmake-build-debug/CMakeFiles/edit_cache.dir
-/storage/pro/ug/plugins/XBraidPoroelasticity/cmake-build-debug/CMakeFiles/rebuild_cache.dir
